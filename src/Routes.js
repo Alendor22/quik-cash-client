@@ -1,8 +1,8 @@
 import React from 'react'
-import { Switch, Route } from ‘react-router-dom’
+import { Switch, Route } from 'react-router-dom'
 import Pages from './Pages'
 
-export const Routes = () => {
+const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Pages.Home} />
@@ -11,3 +11,5 @@ export const Routes = () => {
     </Switch>
   )
 }
+
+export default Routes;
