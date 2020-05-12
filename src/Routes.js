@@ -4,11 +4,11 @@ import Pages from './Pages'
 
 const Routes = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={Pages.Home} />
-      <Route path="/signup" component={Pages.Signup} />
-      <Route path="/login" component={Pages.Login} />
-    </Switch>
+      <Switch>
+        <Route exact path="/" component={Pages.Home} />
+        <Route exact path="/signup" component={Pages.Signup} />
+        <Route exact path="/login" component={Pages.Login} />
+      </Switch>
   )
 }
 
