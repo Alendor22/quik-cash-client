@@ -1,8 +1,9 @@
-const BASE_URL = 'http://localhost:3001/api/v1/';
+const BASE_URL = 'http://localhost:3001/api/v1';
 const USERS_URL = BASE_URL + '/users';
 const PERSIST_URL = BASE_URL + '/persist';
 const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
+
 
 const setUserAction = userObj => ({
   type: 'SET_USER',
