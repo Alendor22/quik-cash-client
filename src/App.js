@@ -5,12 +5,11 @@ import Nav from './Components/Nav'
 
 function App() {
   return (
-    <>
-      <Router />
+      
+      <Router >
         <Nav />
         <Routes />
-      <Router />
-    </>
+      </ Router >
   );
 }
 
