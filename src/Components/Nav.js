@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions';
 
@@ -10,10 +10,11 @@ const Nav = () => {
   };
   return (
     <nav style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <Link to="/">Home</Link>
-      <Link to="/signup">Signup</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/" onClick={handleLogout}>Logout</Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/signup">Signup</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/listings/new">Add Listing</NavLink>
+      <NavLink to="/" onClick={handleLogout}>Logout</NavLink>
     </nav>
   );
 };
