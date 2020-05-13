@@ -1,8 +1,8 @@
 const initialState = {
   user: {
-username: ""
+  username: ""
 },
-  providers: []
+  listings: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -10,7 +10,9 @@ export default (state = initialState, { type, payload }) => {
     case 'SET_USER':
       return {...state, user: payload};
     case 'CLEAR_USER':
-      return {};  
+      return {...state, user: {}}; 
+    case 'SET_LISTING':
+      return {...state, listings: [...state.listings, payload]}
     default:
       return state;
   }
