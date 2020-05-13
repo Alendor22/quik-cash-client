@@ -1,5 +1,6 @@
 const BASE_URL = 'http://localhost:3001/api/v1';
 const USERS_URL = BASE_URL + '/users';
+const LISTING_URL = id => BASE_URL + SPECIFIC_USER_URL + '/listings' + id;
 const PERSIST_URL = BASE_URL + '/persist';
 const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
@@ -13,6 +14,11 @@ const setUserAction = userObj => ({
 const clearUserAction = () => ({
   type: 'CLEAR_USER'
 });
+
+const setListingAction = (listing) => ({
+  type: 'SET_LISTING',
+  payload: listing
+})
 
 // Fetch
 
@@ -77,10 +83,28 @@ const logoutUser = () => dispatch => {
   localStorage.clear();
 };
 
+const addListing = (listingInfo) => dispatch => {
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `bearer ` + localStorage.token
+      },
+      body: JSON.stringify(listingInfo)
+   }
+    fetch(LISTING_URL, config)
+    .then(r => r.json())
+    .then(data => {
+      dispatch(setListingAction(data.listing));
+    });
+}
+
 export default {
   newUserToDB,
   deleteUserFromDB,
   loginUserToDB,
   persistUser,
+  addListing,
   logoutUser
 };
