@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import addListing from '../redux/actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addListing } from '../redux/actions';
 
-const intitialFormState = {
+const initialFormState = {
   itemName: "",
   description: "",
   price: ""
-}
+};
 
 class CreateListing extends Component {
   
-  state = intitialFormState
+  state = initialFormState;
 
   handleChange = (e) => {
     this.setState({
@@ -21,15 +21,17 @@ class CreateListing extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
         let listing = {
+          seller_id: this.props.seller_id,
           item_name: this.state.itemName,
           description: this.state.description,
           price: this.state.price
       }
-      this.props.addListing()
+      this.props.addListing(listing)
+      resetForm
   }
 
   resetForm = () => {
-    this.setState(intitialFormState)
+    this.setState(initialFormState)
   }
 
   render() {
@@ -56,15 +58,16 @@ class CreateListing extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  return { listings: state.listings }
-})
+const mapStateToProps = (state) => {
+  return { 
+    listings: state.listings,
+    seller_id: state.user.id
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addListing: () => {
-      dispatch(addListing())
-    }
+    addListing: (listing) => dispatch( addListing(listing) ) 
   }
 }
 
