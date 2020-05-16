@@ -1,28 +1,37 @@
 const BASE_URL = 'http://localhost:3001/api/v1';
 const USERS_URL = BASE_URL + '/users';
-const LISTING_URL = id => BASE_URL + SPECIFIC_USER_URL + '/listings' + id;
 const PERSIST_URL = BASE_URL + '/persist';
 const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 
-const setUserAction = userObj => ({
+export const setUserAction = userObj => ({
   type: 'SET_USER',
   payload: userObj
 });
 
-const clearUserAction = () => ({
+export const clearUserAction = () => ({
   type: 'CLEAR_USER'
 });
 
-const setListingAction = (listing) => ({
+export const setListingAction = (listing) => ({
   type: 'SET_LISTING',
   payload: listing
-})
+});
+
+export const getListingsAction = (listingIndex) => ({
+  type: 'GET_LISTINGS',
+  payload: listingIndex
+});
+
+export const buyListingAction = (id) => ({
+  type: 'BUY_LISTING',
+  payload: id
+});
 
 // Fetch
 
-const newUserToDB = userObj => dispatch => {
+export const newUserToDB = userObj => dispatch => {
   const config = {
     method: 'POST',
     headers: {
@@ -38,7 +47,7 @@ const newUserToDB = userObj => dispatch => {
     });
 };
 
-const deleteUserFromDB = userId => dispatch => {
+export const deleteUserFromDB = userId => dispatch => {
   const config = {
     method: 'DELETE'
   };
@@ -48,7 +57,7 @@ const deleteUserFromDB = userId => dispatch => {
   });
 };
 
-const loginUserToDB = userCredentials => dispatch => {
+export const loginUserToDB = userCredentials => dispatch => {
   const config = {
     method: 'POST',
     headers: {
@@ -64,11 +73,11 @@ const loginUserToDB = userCredentials => dispatch => {
     });
 };
 
-const persistUser = () => dispatch => {
+export const persistUser = () => dispatch => {
   const config = {
     method: 'GET',
     headers: {
-      Authorization: `bearer ` + localStorage.token
+      'Authorization': `bearer ` + localStorage.token
     }
   };
   fetch(PERSIST_URL, config)
@@ -78,12 +87,12 @@ const persistUser = () => dispatch => {
     });
 };
 
-const logoutUser = () => dispatch => {
+export const logoutUser = () => dispatch => {
   dispatch(clearUserAction());
   localStorage.clear();
 };
 
-const addListing = (listingInfo) => dispatch => {
+export const addListing = (listingInfo, sellerId) => dispatch => {
   const config = {
     method: 'POST',
     headers: {
@@ -91,20 +100,61 @@ const addListing = (listingInfo) => dispatch => {
       'Accept': 'application/json',
       'Authorization': `bearer ` + localStorage.token
       },
-      body: JSON.stringify(listingInfo)
-   }
-    fetch(LISTING_URL, config)
+      body: JSON.stringify({
+        listingInfo,
+        sellerId
+      })
+   };
+    fetch(USERS_URL + '/' + listingInfo.sellerId + '/listings', config)
     .then(r => r.json())
     .then(data => {
-      dispatch(setListingAction(data.listing));
+      dispatch(setListingAction(data));
     });
-}
+};
+
+export const loadListingsIndex = (listings) => dispatch => {
+  const config = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+      body: JSON.stringify(listings)
+   };
+    fetch(BASE_URL + '/listings', config)
+    .then(r => r.json())
+    .then(data => {
+      dispatch(getListingsAction(data));
+    });
+};
+
+export const fetchBuyListing = (listingInfo, buyerId) => dispatch => {
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `bearer ` + localStorage.token
+    },
+      body: JSON.stringify({
+        listingInfo,
+        buyerId
+      })
+   };
+    fetch(USERS_URL + '/' + listingInfo.buyer_id + '/listings', config)
+    .then(r => r.json())
+    .then(data => {
+      dispatch(buyListingAction(data));
+    });
+};
 
 export default {
   newUserToDB,
   deleteUserFromDB,
   loginUserToDB,
   persistUser,
+  logoutUser,
   addListing,
-  logoutUser
+  loadListingsIndex,
+  fetchBuyListing
 };
