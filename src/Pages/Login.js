@@ -15,7 +15,7 @@ const LoginPage = props => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(userActions.loginUserToDB(loginForm));
-    props.history.push('/');
+    props.history.push('/listings');
   };
 
   const handleChange = e =>
