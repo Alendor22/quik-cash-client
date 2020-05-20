@@ -1,13 +1,15 @@
 import BuyListing from './BuyListing';
 import CreateListing from './CreateListing';
 import FavoriteListing from  './FavoriteListing';
-import ListingsLinks from './ListingsLinks';
-import ListingLink from './ListingsLinks';
+import ListingsIndex from './ListingsIndex';
+import ListingLink from './ListingLink';
+import UsersListingsIndex from './UsersListingsIndex';
 
 export default {
   BuyListing,
   CreateListing,
   FavoriteListing,
-  ListingsLinks,
-  ListingLink
+  ListingsIndex,
+  ListingLink,
+  UsersListingsIndex
 };
