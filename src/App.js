@@ -5,7 +5,6 @@ import { loadListingsIndex } from './redux/actions';
 import { connect } from 'react-redux';
 import Pages from './Pages';
 import { withRouter } from 'react-router-dom';
-import { ListingShowContainer } from './Containers/ListingShowContainer';
 
 class App extends Component {
 
@@ -20,7 +19,6 @@ class App extends Component {
     <h1>QuikCash</h1>
         <Nav />
         <Pages.Home />
-        <ListingShowContainer />
         <Routes />
     </>
     );
