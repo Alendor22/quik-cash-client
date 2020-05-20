@@ -27,12 +27,12 @@ class CreateListing extends Component {
           price: this.state.price
       }
       this.props.addListing(listing)
-      resetForm
+      this.resetForm()
   }
 
   resetForm = () => {
     this.setState(initialFormState)
-  }
+  };
 
   render() {
     return (
