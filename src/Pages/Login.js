@@ -15,7 +15,7 @@ const LoginPage = props => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(userActions.loginUserToDB(loginForm));
-    props.history.push('/listings');
+    props.history.push('/listings/new');
   };
 
   const handleChange = e =>
@@ -26,25 +26,29 @@ const LoginPage = props => {
 
   // Component code
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login Page</h1>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        onChange={handleChange}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-      <input type="submit" />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h1>Login Page</h1>
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleChange}
+          placeholder="Username"
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          placeholder="Password"
+        />
+        <input type="submit" />
+      </form>
+    </div> 
+
   );
+
 };
 
 export default LoginPage;
