@@ -24,10 +24,15 @@ export const getListingsAction = (listingIndex) => ({
   payload: listingIndex
 });
 
-export const buyListingAction = (id) => ({
+export const buyListingAction = (listing) => ({
   type: 'BUY_LISTING',
-  payload: id
+  payload: listing
 });
+
+// export const getUsersListingsIndexAction = (usersListingsIndex) => ({
+//   type: 'USERS_LISTINGS',
+//   payload: usersListingsIndex
+// });
 
 // Fetch
 
@@ -92,7 +97,7 @@ export const logoutUser = () => dispatch => {
   localStorage.clear();
 };
 
-export const addListing = (listingInfo, sellerId) => dispatch => {
+export const addListing = (listing, sellerId) => dispatch => {
   const config = {
     method: 'POST',
     headers: {
@@ -101,11 +106,11 @@ export const addListing = (listingInfo, sellerId) => dispatch => {
       'Authorization': `bearer ` + localStorage.token
       },
       body: JSON.stringify({
-        listingInfo,
+        listing,
         sellerId
       })
    };
-    fetch(USERS_URL + '/' + listingInfo.sellerId + '/listings', config)
+    fetch(USERS_URL + '/' + listing.seller_id + '/listings', config)
     .then(r => r.json())
     .then(data => {
       dispatch(setListingAction(data));
@@ -124,29 +129,51 @@ export const loadListingsIndex = (listings) => dispatch => {
     fetch(BASE_URL + '/listings', config)
     .then(r => r.json())
     .then(data => {
+      //localStorage.setItem('data', JSON.stringify(data));
       dispatch(getListingsAction(data));
     });
 };
 
-export const fetchBuyListing = (listingInfo, buyerId) => dispatch => {
+export const fetchBuyListing = (listing_id, buyer_id, seller_id, history) => dispatch => {
   const config = {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': `bearer ` + localStorage.token
     },
       body: JSON.stringify({
-        listingInfo,
-        buyerId
+          buyer_id,
+          sold: true
       })
    };
-    fetch(USERS_URL + '/' + listingInfo.buyer_id + '/listings', config)
+    fetch(USERS_URL + '/' + seller_id + '/listings/' + listing_id, config)
     .then(r => r.json())
     .then(data => {
       dispatch(buyListingAction(data));
+      
+      history.push('/listings');
     });
 };
+
+// export const loadUsersListingsIndex = (listings, sellerId) => dispatch => {
+//   const config = {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json',
+//     },
+//       body: JSON.stringify({
+//         listings,
+//         sellerId
+//       })
+//    };
+//     fetch(USERS_URL + '/' + listings.seller_id + '/listings', config)
+//     .then(r => r.json())
+//     .then(data => {
+//       dispatch(getUsersListingsIndexAction(data));
+//     });
+// };
 
 export default {
   newUserToDB,
