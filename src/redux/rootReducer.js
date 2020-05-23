@@ -16,9 +16,10 @@ export default (state = initialState, { type, payload }) => {
     case "GET_LISTINGS":
       return {...state, listings: payload}; 
     case 'BUY_LISTING':
-      // let boughtListing = initialState.listings;
-      // let listingsIBought = () => boughtListing.slice();
-      return {...state, listings: [...state.listings.concat(payload)]};
+      const newListingArr = state.listings.map(listing => listing.id === payload.id ? payload : listing )
+      return {...state, listings: newListingArr};
+    case 'USERS_LISTINGS':
+      return {...state, users: [...state.user.listings, payload]};
     default:
       return state;
   }
