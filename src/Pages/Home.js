@@ -12,6 +12,4 @@ const Home = () => {
   return <div>{text}</div>;
 };
 
-/* const mapStateToProps = (state) => ({username: state.username}) */
-
 export default Home;
