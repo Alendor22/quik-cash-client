@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addListing } from '../redux/actions';
 
 const initialFormState = {
-  itemName: "",
+  item_name: "",
   description: "",
   price: ""
 };
@@ -22,11 +22,12 @@ class CreateListing extends Component {
     e.preventDefault()
         let listing = {
           seller_id: this.props.seller_id,
-          item_name: this.state.itemName,
+          item_name: this.state.item_name,
           description: this.state.description,
           price: this.state.price
       }
       this.props.addListing(listing)
+      this.props.history.push('/listings')
       this.resetForm()
   }
 
@@ -40,8 +41,8 @@ class CreateListing extends Component {
         <h3>Create Listing</h3>
           <form onSubmit={this.handleSubmit}>
           <div className="input-field">
-            <label htmlFor="itemName">Item Name</label>
-            <input type="text" name="itemName" id="itemName" value={this.state.itemName} onChange={this.handleChange}/>
+            <label htmlFor="item_name">Item Name</label>
+            <input type="text" name="item_name" id="item_name" value={this.state.item_name} onChange={this.handleChange}/>
             </div>
             <div className="input-field">
               <label htmlFor="description">Description</label>
