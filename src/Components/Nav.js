@@ -10,10 +10,7 @@ import { NavLink } from 'react-router-dom';
     const handleLogout = () => {
       dispatch(userActions.logoutUser());
     };
-
-
-  // const isLoggedIn = localStorage.token !== "" && localStorage.token !== undefined && localStorage.token !== "undefined" && localStorage.token !== "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JEdfpl510uWu_3NaqmgTGJdn1j8uZS7V2Omws-GdxRk";
-
+    
   return (
     <nav style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <NavLink to="/listings">Home</NavLink>
