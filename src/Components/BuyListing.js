@@ -1,50 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBuyListing } from '../redux/actions';
+import { withRouter } from 'react-router-dom';
 
-
-const initialBuyState = {
-  buyer_id: "",
-};
 
 class BuyListing extends Component {
 
-    state = initialBuyState;
-    
     handleBuyClick = (e) => {
-      
-      
-        e.preventDefault();
-        const buyer = this.props.buyer_id;
-        let listing = {
-          seller_id: this.state.seller_id,
-          buyer_id: this.props.buyer_id,
-          item_name: this.state.itemName,
-          description: this.state.description,
-          price: this.state.price,
-          sold: this.state.sold === true
-        }
-        this.setState(
-          fetchBuyListing({listing, buyer})
-      );
-      console.log(listing)
-    };
+      e.preventDefault()
+        this.props.fetchBuyListing(this.props.listing.id, this.props.buyer_id, this.props.listing.seller_id, this.props.history)
+    }
 
       render() {
         return (
-              <div>
+              <>
                 <input onClick={this.handleBuyClick} type="button" value="Buy-Listing" />
-              </div>
-          )
+              </>
+        )
       }
 
 }
 
 const mapStateToProps = (state) => {
   return {
-    listings: state.listings,
-    buyer_id: state.user.id
+    buyer_id: state.user.id,
   };
 };
 
-export default connect(mapStateToProps, { fetchBuyListing })(BuyListing)
+export default withRouter(connect(mapStateToProps, { fetchBuyListing })(BuyListing))
