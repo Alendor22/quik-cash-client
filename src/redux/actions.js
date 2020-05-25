@@ -29,11 +29,6 @@ export const buyListingAction = (listing) => ({
   payload: listing
 });
 
-// export const getUsersListingsIndexAction = (usersListingsIndex) => ({
-//   type: 'USERS_LISTINGS',
-//   payload: usersListingsIndex
-// });
-
 // Fetch
 
 export const newUserToDB = userObj => dispatch => {
@@ -129,7 +124,6 @@ export const loadListingsIndex = (listings) => dispatch => {
     fetch(BASE_URL + '/listings', config)
     .then(r => r.json())
     .then(data => {
-      //localStorage.setItem('data', JSON.stringify(data));
       dispatch(getListingsAction(data));
     });
 };
