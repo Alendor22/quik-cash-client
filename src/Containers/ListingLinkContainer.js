@@ -12,7 +12,7 @@ export const ListingLinkContainer = (props) => {
     let aListing = listings.find(listing => listing.id === parseInt(props.location.pathname.split('/listings/')[1]))
     const isListingSold = !!aListing && aListing.sold;
     
-      return isListingSold ? 'Sorry this listing has been purchased!' : <ListingLink {...routerProps} listing={aListing}/>;
+      return isListingSold ? 'Sorry, this listing has been purchased!' : <ListingLink {...routerProps} listing={aListing}/>;
   };
   
   return (
