@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
   
   const Nav = () => {
-    //const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
     const dispatch = useDispatch();
     const handleLogout = () => {
       dispatch(userActions.logoutUser());
