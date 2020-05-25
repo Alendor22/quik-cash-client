@@ -24,6 +24,7 @@ class BuyListing extends Component {
 const mapStateToProps = (state) => {
   return {
     buyer_id: state.user.id,
+    listings: state.listings 
   };
 };
 
