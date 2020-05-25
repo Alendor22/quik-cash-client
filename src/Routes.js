@@ -1,9 +1,8 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Pages from './Pages';
 import ListingLinkContainer from './Containers/ListingLinkContainer';
 import Components from './Components';
-
 
 const Routes = () => {
   return (
@@ -14,8 +13,9 @@ const Routes = () => {
         <Route exact path="/listings" component={Components.ListingsIndex} />
         <Route exact path="/listings/:id" component={ListingLinkContainer} />
         <Route exact path="/users/:id/listings" component={Components.UsersListingsIndex} />
+        <Route exact path="users/:id/listings/:id" component={Components.UsersListings} />
       </Switch>
   )
 }
 
-export default Routes;
+export default withRouter(Routes);
