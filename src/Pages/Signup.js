@@ -22,7 +22,7 @@ const Signup = props => {
     e.preventDefault();
     const { history } = props;
     dispatch(userActions.newUserToDB(signupForm));
-    history.push('/');
+    history.push('/listings');
   };
 
   // Destructuring keys from our local state to use in the form
@@ -38,22 +38,21 @@ const Signup = props => {
         value={username}
         onChange={handleChange}
         placeholder="Username"
-      /><br>
+      />
       <input
         type="text"
         name="location"
         value={location}
         onChange={handleChange}
         placeholder="Location"
-      /></br>
-      <br>
+      />
       <textarea
         type="text"
         name="bio"
         value={bio}
         onChange={handleChange}
         placeholder="Bio"
-      /></br>
+      />
       <input
         type="password"
         name="password"
