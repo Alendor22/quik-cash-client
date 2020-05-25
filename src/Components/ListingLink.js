@@ -16,6 +16,7 @@ export const ListingLink = (props) => {
       const renderListingLink = () => {
       
         return <>
+                  <h3>Quik-Listing</h3>
                   <span key={key} to={`/listings/${key}`}>
                     <p>Item Name - {listing.item_name}</p>
                     <p>Description - {listing.description}</p>
