@@ -4,6 +4,7 @@ import { loadListingsIndex } from '../redux/actions';
 import { Switch, Route } from 'react-router-dom';
 import { ListingsIndex } from '../Components/ListingsIndex';
 
+
 export const ListingsIndexContainer = (props) => {
   return (
     <>
