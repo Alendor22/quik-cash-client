@@ -18,11 +18,11 @@ export const ListingLink = (props) => {
         return <>
                   <h3>Quik-Listing</h3>
                   <span key={key} to={`/listings/${key}`}>
-                    <p>Item Name - {listing.item_name}</p>
-                    <p>Description - {listing.description}</p>
-                    <p>Price - ${listing.price}</p>
-                    <p>Seller - <Link to={`/users/${listing.seller_id}/listings`}>{listing.seller.username}</Link></p>
-                    <p>Buyer - <Link to={`/users/${listing.buyer_id}/listings`}>{listingAvail && isLoggedIn ? <BuyListing listing = {listing}/> : buyerOfListing}</Link></p>
+                  <p>Item Name - {listing.item_name}</p>
+                  <p>Description - {listing.description}</p>
+                  <p>Price - ${listing.price}</p>
+                  <p>Seller - <Link to={`/users/${listing.seller_id}/listings`}>{listing.seller.username}</Link></p>
+                  <p>Buyer - <Link to={`/users/${listing.buyer_id}/listings`}>{listingAvail && isLoggedIn ? <BuyListing listing = {listing}/> : buyerOfListing}</Link></p>
                   </span>
                </>
     }

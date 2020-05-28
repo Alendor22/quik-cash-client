@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addListing } from '../redux/actions';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const initialFormState = {
   item_name: "",
@@ -38,22 +40,39 @@ class CreateListing extends Component {
   render() {
     return (
       <>
-        <h3>Create Listing</h3>
-          <form onSubmit={this.handleSubmit}>
-          <div className="input-field">
-            <label htmlFor="item_name">Item Name</label>
-            <input type="text" name="item_name" id="item_name" value={this.state.item_name} onChange={this.handleChange}/>
-            </div>
-            <div className="input-field">
-              <label htmlFor="description">Description</label>
-              <textarea type="text" name="description" id="description" value={this.state.description} onChange={this.handleChange}></textarea>
-            </div>
-            <div className="input-field">
-              <label htmlFor="price">price$</label>
-              <input type="number" placeholder="0.00" name="price" id="price" value={this.state.price} onChange={this.handleChange}></input>
-            </div>
-            <input type="submit" value="Add Listing" className="btn blue" />
-        </form>
+        <h3>Create a new Quik-Listing</h3>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId="item_name">
+              <Form.Label>Item Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="item_name"
+                  value={this.state.item_name}
+                  onChange={this.handleChange}
+                />
+            </Form.Group>
+            <Form.Group controlId="description">
+              <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" rows="3" 
+                  name="description" 
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                />
+            </Form.Group>
+            <Form.Group controlId="price">
+              <Form.Label>price$</Form.Label>
+                <Form.Control
+                  type="number" 
+                  placeholder="0.00" 
+                  name="price" 
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                /> 
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Add Listing
+            </Button>
+        </Form>
       </>
     )
   }

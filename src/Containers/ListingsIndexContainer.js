@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadListingsIndex } from '../redux/actions';
 import { Switch, Route } from 'react-router-dom';
-import { ListingsIndex } from '../Components/ListingsIndex';
+import ListingsIndex from '../Components';
 
 
 export const ListingsIndexContainer = (props) => {

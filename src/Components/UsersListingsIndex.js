@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
+
 export const UsersListingsIndex = (routerProps) => {
       const userListings = useSelector(state => state.listings.filter(listings => listings.seller_id === parseInt(routerProps.match.params.id)));
       const renderUsersListingsIndex = () => {

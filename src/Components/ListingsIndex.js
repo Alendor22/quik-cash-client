@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-//import UsersListings from './UsersListings';
 import UsersListings  from './UsersListings';
+import UsersBoughtListings from './UsersBoughtListings';
 
 export const ListingsIndex = () => {
   const listings = useSelector(state => state.listings);
@@ -25,7 +25,9 @@ export const ListingsIndex = () => {
           {renderListingsIndex()}
       </ul>
         <h3>My-Quik-Listings</h3>
-        {isLoggedIn ? <UsersListings /> : "Please login to see your listings!" }
+        {isLoggedIn ? <UsersListings /> : "Please login to see your Quik-listings!" }
+        <h3>My-Quik-Buys</h3>
+        {isLoggedIn ? <UsersBoughtListings /> : "Please login to see your Quik-buys! "}
       </div>
     )
 

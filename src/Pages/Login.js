@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 
 const LoginPage = props => {
   // initializing dispatch
@@ -27,28 +30,38 @@ const LoginPage = props => {
   // Component code
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <h1>Login Page</h1>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleChange}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          placeholder="Password"
-        />
-        <input type="submit" />
-      </form>
+        <Form.Group controlId="logInForm">
+          <Form.Label>Username</Form.Label>
+            <Form.Control 
+            type="text" 
+            name="username"
+            placeholder="Enter Username"
+            value={username}
+            onChange={handleChange}
+            />
+        </Form.Group>
+        <Form.Group controlId="logInwField">
+          <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+            />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+      </Form>
     </div> 
 
   );
 
 };
+
+
 
 export default LoginPage;
