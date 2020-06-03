@@ -23,7 +23,7 @@ import { LinkContainer } from 'react-router-bootstrap';
               <NavDropdown.Item active>Login</NavDropdown.Item>
             </LinkContainer>
               <NavDropdown.Divider />
-            <LinkContainer to="/">
+            <LinkContainer to="/listings">
               <NavDropdown.Item active onClick={handleLogout}>Logout</NavDropdown.Item>
             </LinkContainer>
               <NavDropdown.Divider />
