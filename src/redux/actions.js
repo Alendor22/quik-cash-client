@@ -65,7 +65,6 @@ export const loginUserToDB = userCredentials => dispatch => {
     },
     body: JSON.stringify(userCredentials)
   };
-  console.log(userCredentials)
   fetch (LOGIN_URL, config)
     .then(r => r.json())
     .then(data => {
