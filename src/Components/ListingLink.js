@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export const ListingLink = (props) => {
   const { key } = props;
   const listings = useSelector(state => state.listings);
-  const token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
   const isLoggedIn = !!token;
   const listing = listings.find(listing => listing.id === parseInt(props.location.pathname.split('/listings/')[1]));
   const buyerOfListing = listing && listing.buyer && listing.buyer.username;
@@ -22,6 +22,7 @@ export const ListingLink = (props) => {
                   <p>Description - {listing.description}</p>
                   <p>Price - ${listing.price}</p>
                   <p>Seller - <Link to={`/users/${listing.seller_id}/listings`}>{listing.seller.username}</Link></p>
+                  <p>Seller Bio - {listing.seller.bio}</p>
                   <p>Buyer - <Link to={`/users/${listing.buyer_id}/listings`}>{listingAvail && isLoggedIn ? <BuyListing listing = {listing}/> : buyerOfListing}</Link></p>
                   </span>
                </>
