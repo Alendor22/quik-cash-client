@@ -15,8 +15,7 @@ const Routes = () => {
         <Route exact path="/listings" component={Components.ListingsIndex} />
         <Route exact path="/listings/:id" component={ListingLinkContainer} />
         <Route exact path="/users/:id/listings" component={Components.UsersListingsIndex} />
-        <Route exact path="users/:id/listings/:id"component={Components.UsersBoughtListings} />
-        <Route exact path="users/:id/listings/:id" component={Components.UsersListings} />
+        <Route exact path="/users/:id/listings/:id" component={Components.UsersListingsLink} />
       </Switch>
   )
 }
