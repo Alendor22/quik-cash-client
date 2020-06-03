@@ -1,3 +1,8 @@
+# Quik-Cash-Client
+
+The frontend of the afore mentioned application was made using the latest version of the React library (v16.13.1), as well as the following libraries Redux, redux-thunk, react-redux, and react-router.  Quik-Cash is a Letgo clone of sorts whereby a user can post products, goods, and services and buy products, goods, and services from other users, a user may also post and buy from themselves if they wished to do so.  With that being said this is a self referential relationship domain, there are only 2 models a User model and a Listing model.  Auth with JWT was utilized in the development of this application, it made sense to make sure a user was in fact the user that posted a listing via the use of auth, as well as to only render certain views/access to a user if they were indeed logged in.  The backend of the App "Quik-Cash" was stubbed out using Rails new in api mode, then scaffolded with the models needed to render JSON.  Active model serializer was also used to serialize the data being sent from the backend to the front end. To view the repo for the backend please see https://github.com/Alendor22/quik-cash-api.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -36,33 +41,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

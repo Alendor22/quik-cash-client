@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions.js';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const Signup = props => {
   // initializing dispatch
@@ -30,38 +32,51 @@ const Signup = props => {
 
   // Component code
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <h1>Signup Page</h1>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        onChange={handleChange}
-        placeholder="Username"
-      />
-      <input
-        type="text"
-        name="location"
-        value={location}
-        onChange={handleChange}
-        placeholder="Location"
-      />
-      <textarea
-        type="text"
-        name="bio"
-        value={bio}
-        onChange={handleChange}
-        placeholder="Bio"
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-      <input type="submit" />
-    </form>
+        <Form.Group controlId="user-signup">
+          <Form.Label>Please Select a Username</Form.Label>
+            <Form.Control
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+              placeholder="Username"
+            />
+        </Form.Group>
+        <Form.Group controlId="user-location">
+          <Form.Label>Please enter your location</Form.Label>
+            <Form.Control
+              type="text"
+              name="location"
+              value={location}
+              onChange={handleChange}
+              placeholder="State\Territory"
+            />
+        </Form.Group>
+        <Form.Group controlId="bio">
+          <Form.Label>Short-Bio</Form.Label>
+            <Form.Control as="textarea" rows="3" 
+              name="bio" 
+              value={bio}
+              onChange={handleChange}
+              placeholder="Bio"
+            />
+        </Form.Group>
+        <Form.Group controlId="signUpPwField">
+          <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Create Account
+        </Button>
+    </Form>
   );
 };
 

@@ -16,7 +16,7 @@ export default (state = initialState, { type, payload }) => {
     case "GET_LISTINGS":
       return {...state, listings: payload}; 
     case 'BUY_LISTING':
-      const newListingArr = state.listings.map(listing => listing.id === payload.id ? payload : listing )
+      const newListingArr = state.listings.map(listing => listing.id === payload.id ? payload : listing);
       return {...state, listings: newListingArr};
     case 'USERS_LISTINGS':
       return {...state, users: [...state.user.listings, payload]};

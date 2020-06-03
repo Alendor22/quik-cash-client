@@ -1,10 +1,7 @@
 import React from 'react';
 import { CreateListing } from '../Components';
 import { Route, Switch } from 'react-router-dom';
-import { CreateListing } from '../Components/CreateListing';
 import { connect } from 'react-redux';
-
- 
 
 
 export const CreateListingContainer = (props) => {

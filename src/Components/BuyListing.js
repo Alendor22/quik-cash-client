@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBuyListing } from '../redux/actions';
 import { withRouter } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 
 class BuyListing extends Component {
@@ -14,7 +15,7 @@ class BuyListing extends Component {
       render() {
         return (
               <>
-                <input onClick={this.handleBuyClick} type="button" value="Buy-Listing" />
+                <Button variant="primary" type="submit" onClick={this.handleBuyClick}>Buy-Listing</Button>
               </>
         )
       }

@@ -7,7 +7,7 @@ const Home = () => {
   const text = username ? (
     <h1>{username} is currently logged in</h1>
   ) : (
-    <h1>Nobody is logged in</h1>
+    <h1>Currently not logged in</h1>
   );
   return <div>{text}</div>;
 };
