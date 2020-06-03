@@ -9,7 +9,6 @@ export const UsersListingsIndex = (routerProps) => {
         return userListings.map(listing => {
           return  <div key={listing.id}>
                       <Link key={listing.id} to={`listings/${listing.seller_id}`}>Seller: {listing.seller.username} - Listing: {listing.item_name}</Link>
-                      
                   </div>
                     
         })
