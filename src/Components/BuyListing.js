@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 class BuyListing extends Component {
 
+  
     handleBuyClick = (e) => {
       e.preventDefault()
         this.props.fetchBuyListing(this.props.listing.id, this.props.buyer_id, this.props.listing.seller_id, this.props.history)
