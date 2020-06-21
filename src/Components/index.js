@@ -17,5 +17,5 @@ export default {
   ListingLink,
   UsersBoughtListings,
   UsersListingsIndex,
-  UsersListingsLink
+  UsersListingsLink,
 };
