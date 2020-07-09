@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import AvailableListings from './AvailableListings';
 import UsersBoughtListings from './UsersBoughtListings';
 import UsersListings from './UsersListings';
 import Container from 'react-bootstrap/Container';
@@ -69,10 +68,8 @@ export const ListingsIndex = () => {
                           <option value="all listings">All-Listings</option>
                         </select>
                       </label>
-                    {/* <input type="submit" value="Submit"></input> */}
                   </form>
           {renderListingsIndex()}
-          {/* <AvailableListings /> */}
       </ul>
       
       <br />
