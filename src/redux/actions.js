@@ -93,24 +93,24 @@ export const logoutUser = () => dispatch => {
 };
 
 export const addListing = (listing, sellerId) => dispatch => {
-  const config = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `bearer ` + localStorage.token
-      },
-      body: JSON.stringify({
-        listing,
-        sellerId
-      })
-   };
-    fetch(USERS_URL + '/' + listing.seller_id + '/listings', config)
-    .then(r => r.json())
-    .then(data => {
-      dispatch(setListingAction(data));
-    });
-};
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `bearer ` + localStorage.token
+        },
+        body: JSON.stringify({
+          listing,
+          sellerId
+        })
+    };
+      fetch(USERS_URL + '/' + listing.seller_id + '/listings', config)
+      .then(r => r.json())
+      .then(data => {
+        dispatch(setListingAction(data));
+      });
+  };
 
 export const loadListingsIndex = (listings) => dispatch => {
   const config = {
