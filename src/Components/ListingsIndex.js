@@ -14,17 +14,35 @@ export const ListingsIndex = () => {
   const isLoggedIn = !!token;
       
     const [select, setSelect] = useState("")
+    const [sort, setSort] = useState(false)
+
+    const handleSortToggle = (listings) => {
+      let sortListings = [...listings]
+      console.log("sortListings", sortListings )
+        if (sort === true) {
+         return sortListings.sort((a,b) => {
+          let la = a["item_name"].toLowerCase(),
+          lb = b["item_name"].toLowerCase()
+          console.log("I'm la", la)
+          // console.log("I'm lb", lb)
+          if (la < lb) {
+            return -1;
+          }
+          if (la > lb) {
+            return 1;
+          }
+          return 0;
+        });
+      } else {
+        return listings
+      }
+  
+    }
 
     const handleChange = (e) => {
       setSelect(e.target.value)
       console.log(e.target.value)
     };
-
-    // const handleSubmit = (e) => {
-    //   e.preventDefault()
-    //   currentListings()
-    //   console.log("I've chosen", select)
-    // };
 
     const currentListings = () => {
       if (select === "available") {
@@ -40,8 +58,11 @@ export const ListingsIndex = () => {
       }
     } 
 
+
+
     const renderListingsIndex = () => {
-      return currentListings().map(listing => {
+      console.log("test")
+      return handleSortToggle(currentListings()).map(listing => {
         return  <div key={listing.id}>
                   <Container>
                     <Row lg={3}>
@@ -71,7 +92,7 @@ export const ListingsIndex = () => {
                   </form>
           {renderListingsIndex()}
       </ul>
-      
+      <button onClick={() => setSort(!sort)}>Sort-Toggle</button>
       <br />
       <Container>
         <Row lg={3}>
