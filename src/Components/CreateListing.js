@@ -22,15 +22,14 @@ class CreateListing extends Component {
   
   handleSubmit = (e) => {
     e.preventDefault()
-        let listing = {
-          seller_id: this.props.seller_id,
-          item_name: this.state.item_name,
-          description: this.state.description,
-          price: this.state.price
-      }
-      this.props.addListing(listing)
-      this.props.history.push('/listings')
-      this.resetForm()
+    let listing = {
+      seller_id: this.props.seller_id,
+      item_name: this.state.item_name,
+      description: this.state.description,
+      price: this.state.price
+    }
+    this.props.addListing(listing)
+    this.props.history.push('/listings')
   }
 
   resetForm = () => {
