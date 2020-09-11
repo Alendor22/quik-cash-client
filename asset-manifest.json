@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.c2d745fc.chunk.css",
-    "main.js": "/static/js/main.5bf6a466.chunk.js",
-    "main.js.map": "/static/js/main.5bf6a466.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.38facfbb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.38facfbb.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.2fc66160.chunk.js": "/static/js/2.2fc66160.chunk.js",
-    "static/js/2.2fc66160.chunk.js.map": "/static/js/2.2fc66160.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.819f8bfa4219907c67adc9c21a2c4a3d.js": "/precache-manifest.819f8bfa4219907c67adc9c21a2c4a3d.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.c2d745fc.chunk.css.map": "/static/css/main.c2d745fc.chunk.css.map",
-    "static/js/2.2fc66160.chunk.js.LICENSE.txt": "/static/js/2.2fc66160.chunk.js.LICENSE.txt"
+    "main.css": "/quik-cash-client/static/css/main.c2d745fc.chunk.css",
+    "main.js": "/quik-cash-client/static/js/main.63a2ed9d.chunk.js",
+    "main.js.map": "/quik-cash-client/static/js/main.63a2ed9d.chunk.js.map",
+    "runtime-main.js": "/quik-cash-client/static/js/runtime-main.e2acd6ad.js",
+    "runtime-main.js.map": "/quik-cash-client/static/js/runtime-main.e2acd6ad.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/quik-cash-client/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.2fc66160.chunk.js": "/quik-cash-client/static/js/2.2fc66160.chunk.js",
+    "static/js/2.2fc66160.chunk.js.map": "/quik-cash-client/static/js/2.2fc66160.chunk.js.map",
+    "index.html": "/quik-cash-client/index.html",
+    "precache-manifest.c9c07c9f82cef6fe6eb48af794377407.js": "/quik-cash-client/precache-manifest.c9c07c9f82cef6fe6eb48af794377407.js",
+    "service-worker.js": "/quik-cash-client/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/quik-cash-client/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.c2d745fc.chunk.css.map": "/quik-cash-client/static/css/main.c2d745fc.chunk.css.map",
+    "static/js/2.2fc66160.chunk.js.LICENSE.txt": "/quik-cash-client/static/js/2.2fc66160.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.38facfbb.js",
+    "static/js/runtime-main.e2acd6ad.js",
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.2fc66160.chunk.js",
     "static/css/main.c2d745fc.chunk.css",
-    "static/js/main.5bf6a466.chunk.js"
+    "static/js/main.63a2ed9d.chunk.js"
   ]
 }
