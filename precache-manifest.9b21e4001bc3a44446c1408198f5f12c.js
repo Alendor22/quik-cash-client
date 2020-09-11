@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb5641ef84c6ba50c0c6f515abc2e702",
+    "revision": "b6f3ab34bf6ffe1bf9f1f252425c1497",
     "url": "/quik-cash-client/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/quik-cash-client/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "c32251069a6b9ccae0b8",
+    "revision": "d297495d0dd1d15cebf6",
     "url": "/quik-cash-client/static/css/main.c2d745fc.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/quik-cash-client/static/js/2.2fc66160.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c32251069a6b9ccae0b8",
-    "url": "/quik-cash-client/static/js/main.63a2ed9d.chunk.js"
+    "revision": "d297495d0dd1d15cebf6",
+    "url": "/quik-cash-client/static/js/main.5026a92a.chunk.js"
   },
   {
     "revision": "db5f35f6665719b83bd9",
