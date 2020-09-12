@@ -7,7 +7,7 @@ import Nav from './Components/Nav';
 import { loadListingsIndex, persistUser } from './redux/actions';
 import { connect } from 'react-redux';
 import Pages from './Pages';
-import { withRouter } from 'react-router-dom';
+import { withRouter, HashRouter} from 'react-router-dom';
 import './index.css';
 
 
@@ -25,15 +25,18 @@ class App extends Component {
   render() {
   return (
     <>
-      <Container className="p-3">
-        <Jumbotron>
-          <h1>QuikCash - A Listing and Buying Site</h1>
-            <h6>Created by: Adeja</h6>
-              <Nav />
-              <Pages.Home />
-            <Routes />
-        </Jumbotron>    
-      </Container>
+      <HashRouter basename= '/'>
+
+        <Container className="p-3">
+          <Jumbotron>
+            <h1>QuikCash - A Listing and Buying Site</h1>
+              <h6>Created by: Adeja</h6>
+                <Nav />
+                <Pages.Home />
+              <Routes />
+          </Jumbotron>    
+        </Container>
+      </HashRouter>
     </>
     );
   }
