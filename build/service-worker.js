@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/quik-cash-client/precache-manifest.f09690c856227dfb194889b0e042e10e.js"
+  "/quik-cash-client/precache-manifest.9b21e4001bc3a44446c1408198f5f12c.js"
 );
 
 self.addEventListener('message', (event) => {
