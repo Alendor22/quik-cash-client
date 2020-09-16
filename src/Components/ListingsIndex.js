@@ -18,12 +18,12 @@ export const ListingsIndex = () => {
 
     const handleSortToggle = (listings) => {
       let sortListings = [...listings]
-      console.log("sortListings", sortListings )
+      //console.log("sortListings", sortListings )
         if (sort === true) {
          return sortListings.sort((a,b) => {
-          let la = a["item_name"].toLowerCase(),
-          lb = b["item_name"].toLowerCase()
-          console.log("I'm la", la)
+          let la = a["item_name"],
+          lb = b["item_name"]
+          //console.log("I'm la", la)
           // console.log("I'm lb", lb)
           if (la < lb) {
             return -1;
@@ -41,16 +41,16 @@ export const ListingsIndex = () => {
 
     const handleChange = (e) => {
       setSelect(e.target.value)
-      console.log(e.target.value)
+      //console.log(e.target.value)
     };
 
     const currentListings = () => {
       if (select === "available") {
-        console.log("buy me")
+        //console.log("buy me")
         return listings.filter(listing => listing.sold === false)
       }
       else if (select === "sold") {
-        console.log("I'm sold")
+        //console.log("I'm sold")
         return listings.filter(listing => listing.sold === true)
       }
       else {
@@ -61,19 +61,17 @@ export const ListingsIndex = () => {
 
 
     const renderListingsIndex = () => {
-      console.log("test")
+      //console.log("test")
       return handleSortToggle(currentListings()).map(listing => {
         return  <div key={listing.id}>
                   <Container>
                     <Row lg={3}>
                       <Col s={6}></Col>
-                        <Link key={listing.id} to={`/listings/${listing.id}`}>{listing.item_name}{listing.sold === true ? " - Sold" : ""}</Link>
-                    </Row>  
+                        <Link key={listing.id} to={`/listings/${listing.id}`}><p>  </p>{listing.item_name}{listing.sold === true ? " - Sold" : ""}<p>  </p></Link>
+                    </Row>
                   </Container>
                 </div>
-               
       })      
-  
     }
 
     return (

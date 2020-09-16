@@ -18,9 +18,11 @@ export const UsersListings = () => {
     return userListings().map((listing, index) => {
       return (
         <div key={index}>
+          <p>  </p>
           <p><span>Seller: </span>{listing.seller.username}</p>
           <p><span>Item: </span>{listing.item_name}</p>
           <p><span>Price: $</span>{listing.price}</p>
+          <p> - </p>
         </div>
       )
     })
